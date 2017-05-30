@@ -66,7 +66,8 @@ class CompaniesController < ApplicationController
     if (Employee.find_by_id(params[:employee_id]) && !@company.employees.exists?(params[:employee_id]))
       employee = Employee.find_by_id(params[:employee_id])
       if @company.employees << employee
-        render json: @company.employees, status: :ok 
+        @employees = @company.employees
+        render json: @employees, status: :ok 
       else    
         render json: @company.errors, status: :unprocessable_entity
       end
@@ -77,7 +78,8 @@ class CompaniesController < ApplicationController
   # List all employees applied for this company
   def list_employees
     #if @company.employees
-       render json: @company.employees, status: :ok 
+       @employees = @company.employees
+       render json: @employees, status: :ok 
      # else 
      #  render json: @company.errors, status: :unprocessable_entity
      # end

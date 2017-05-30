@@ -30,7 +30,6 @@ RSpec.describe EmployeesController, type: :controller do
 
     it "loads all of the posts into @employees" do
       get :index
-
       expect(assigns(:employees)).to match_array([@employee1, @employee2, @employee3, @employee4])
     end
   end
@@ -68,4 +67,4 @@ describe "GET- Employee can apply for a specific company" do
       expect(assigns(:companies)).to match_array([@company1])
     end
   end
-end 
+end   

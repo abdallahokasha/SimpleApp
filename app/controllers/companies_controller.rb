@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :assign, :list_employees]
 
   # GET /companies
   # GET /companies.json
@@ -62,18 +62,22 @@ class CompaniesController < ApplicationController
   end
   #assign specific employee to this company
   def assign  
-    if Employee.exists?(params[:employee_id])
-      employee = Employee.find(params[:employee_id])
-      if @company.employees.create(employee)
-        format.html { redirect_to @company, notice: 'Employee successfully assigned to this company' }
-        format.json { render :show, status: :ok, location: @company }
+    if (employee = Employee.find_by_id(params[:employee_id]) && !@company.employees.exists?(params[:employee_id]))
+      if @company.employees << employee
+        render json: @company, status: :ok 
       else   
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        render json: @company.errors, status: :unprocessable_entity
+      end
+    end    
   end   
   # List all employees applied for this company
   def list_employees
-    @company.employees
+    #if @company.employees
+       render json: @company.employees, status: :ok 
+     # else 
+     #  render json: @company.errors, status: :unprocessable_entity
+     # end
+    #end 
   end 
   
   private

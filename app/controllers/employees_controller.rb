@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  before_action :set_employee, only: [:show, :edit, :update, :destroy, :apply]
 
   # GET /employees
   # GET /employees.json
@@ -67,12 +67,12 @@ class EmployeesController < ApplicationController
     if Company.exists?(params[:company_id])
       company = Company.find(params[:company_id])
 
-      if @employee.companies.create(company)
-        format.html { redirect_to @employee, notice: 'Employee applied to this company.' }
-        format.json { render :show, status: :ok, location: @employee }
+      if @employee.companies << company
+        render json: @employee, status: :ok 
       else 
-        format.html { render :edit }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }   
+        render json: @employee.errors, status: :unprocessable_entity   
+      end
+    end    
   end   
   ################################
   def list_companies

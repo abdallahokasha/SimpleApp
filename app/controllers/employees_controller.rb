@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy, :apply]
+  before_action :set_employee, only: [:show, :edit, :update, :destroy, :apply, :list_companies]
 
   # GET /employees
   # GET /employees.json
@@ -64,20 +64,20 @@ class EmployeesController < ApplicationController
   #employee applies to a specific company
   def apply
     #if !Company.exists?(@company :id)
-    if Company.exists?(params[:company_id])
-      company = Company.find(params[:company_id])
-
+    if (Company.find_by_id(params[:company_id]) && !@employee.companies.exists?(params[:company_id]))
+      company = Company.find_by_id(params[:company_id])
       if @employee.companies << company
-        render json: @employee, status: :ok 
+        render json: @employee.companies, status: :ok 
       else 
         render json: @employee.errors, status: :unprocessable_entity   
-      end
+      end  
     end    
   end   
   ################################
   def list_companies
-    @employee.companies
+    render json: @employee.companies, status: :ok 
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee

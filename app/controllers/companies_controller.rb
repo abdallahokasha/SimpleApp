@@ -62,10 +62,11 @@ class CompaniesController < ApplicationController
   end
   #assign specific employee to this company
   def assign  
-    if (employee = Employee.find_by_id(params[:employee_id]) && !@company.employees.exists?(params[:employee_id]))
+    if (Employee.find_by_id(params[:employee_id]) && !@company.employees.exists?(params[:employee_id]))
+      employee = Employee.find_by_id(params[:employee_id])
       if @company.employees << employee
-        render json: @company, status: :ok 
-      else   
+        render json: @company.employees, status: :ok 
+      else    
         render json: @company.errors, status: :unprocessable_entity
       end
     end    

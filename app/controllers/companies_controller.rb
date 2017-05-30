@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  #respond_to :json
   before_action :set_company, only: [:show, :edit, :update, :destroy, :assign, :list_employees]
 
   # GET /companies
@@ -69,6 +70,8 @@ class CompaniesController < ApplicationController
       else    
         render json: @company.errors, status: :unprocessable_entity
       end
+    else
+      render plain: "Ok! this company has been assigned to this employee"      
     end    
   end   
   # List all employees applied for this company

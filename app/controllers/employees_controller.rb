@@ -70,7 +70,9 @@ class EmployeesController < ApplicationController
         render json: @employee.companies, status: :ok 
       else 
         render json: @employee.errors, status: :unprocessable_entity   
-      end  
+      end
+    else
+      render plain: "Ok! this Employee has already applied for this company"  
     end    
   end   
   ################################

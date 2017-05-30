@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :companies do
+    #defaults: {format: :json}
   	get :assign, on: :member
   	get :list_employees, on: :member
     get :index, on: :collection

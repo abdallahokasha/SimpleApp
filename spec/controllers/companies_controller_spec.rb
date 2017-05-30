@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
+  before(:all) do 
+   @employee1 = Employee.create(name:"Ahmed", address:"Elharam", age:"25", Gender:"Male")
+   @employee2 = Employee.create(name:"Ali", address:"Dokki_Giza", age:"29", Gender:"Male")
+   @employee3 = Employee.create(name:"Mona", address:"Ocotber", age:"22", Gender:"Female")
+   @employee4 = Employee.create(name:"Ibrahim", address:"Mokkattam", age:"43", Gender:"Male")
+
+   @company1 = Company.create(name:"Vodafone", address:"Maadi")
+   @company2 = Company.create(name:"IBM", address:"Smart_Village")
+   @company3 = Company.create(name:"Oracle", address:"Giza")
+   @company4 = Company.create(name:"Microsoft", address:"Alex")
+  end 
+
+  after(:all) do
+   Employee.delete_all
+   Company.delete_all
+  end
 # list all companies
 # /companies
   describe "GET #index" do

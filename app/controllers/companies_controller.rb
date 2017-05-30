@@ -71,7 +71,7 @@ class CompaniesController < ApplicationController
         render json: @company.errors, status: :unprocessable_entity
       end
     else
-      render plain: "Ok! this company has been assigned to this employee"      
+      render plain: "Ok! This company has been already assigned to this employee"      
     end    
   end   
   # List all employees applied for this company

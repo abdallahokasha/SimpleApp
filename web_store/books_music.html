@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type ="text/javascript" src="albums.js"></script>
+  <title> Albums </title>
+  <style>
+div.albums {
+display: block;
+
+}
+.albums{
+font-style: italic;
+}
+
+#album1 {
+	background-color: yellow;
+  align-self: center;
+}	
+#album2 {
+background-color: orange;
+}
+.books{
+    font-style: oblique;
+}
+#twilight{
+    background-color: red;
+}
+body {margin:0;}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>
+
+</head>	
+<body>
+  <div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="./books.html" >Books</a>
+  <a href="./albums.html" >Albums</a>
+  </div>
+
+   <div style="padding-left:16px">
+   </div>
+
+	<div id = "album1" class = "albums product">
+		
+		<div class = "name">
+			<p> This Album1 Name </p>
+        </div>
+        
+        <div class = "category">
+        	<p> This album1 Category </p>
+        </div>
+
+        <div class = "price">
+        	<p> Album1 Price</p>
+        </div>
+
+        <div class = "picture">
+        </div>
+
+        <div class = "List_of_selling_points">
+        </div>
+            
+	</div>
+    
+    <div id = "album2" class = "albums product" price ="$23">
+		
+		<div id="album2_name" class = "name">
+        <p> This album2 Name </p>
+        </div>
+        
+        <div id="album2_category" class = "category">
+        </div>
+
+        <div id="album2_price" class = "price">
+        	<p> it's Price = $35 </p>
+        </div>
+
+        <div id="albums_pic" class = "picture">
+        	<img src = "Fault in our Stars--Cover.png">
+        </div>
+
+        <div id="album2_list" class = "List_of_selling_points">
+
+        </div>
+            
+	 </div>
+    
+    <div  id="twilight" class = "book product">
+    
+    <div id="book1_name" class = "name">
+            <p> This first book name</p>
+        </div>
+        
+        <div id="book1_category" class = "category">
+            <p> This is first book category </p>
+        </div>
+
+        <div id = "book1_price" class = "price">
+            <p> it's price = $38 </p>
+        </div>
+
+        <div id = "book1_pic" class = "picture">
+        </div>
+
+        <div id = "book1_list" class = "List_of_selling_points">
+          <ul>
+            <li> 11 </li>
+            <li> 12 </li>
+            <li> 13 </li>
+          </ul> 
+        </div>
+            
+  </div>
+
+   <div  id="the_fault_in_our_stars" class = "book product">
+        <div id= "book2_name"class = "name">
+        <p> This is the name of Second book</p>
+        </div>
+
+        <div id="book2_category" class = "category">
+               <p> Movies </p>
+        </div>
+
+        <div id = "book2_price" class = "price">
+            <p> price: $18 </p>
+        </div>
+
+        <div id = "book2_pic" class = "picture">
+            <img src = "arryn.jpg">
+        </div>
+
+        <div id = "book2_list" class = "List_of_selling_points">
+          <ul>
+            <li> 21 </li>
+            <li> 22 </li>
+            <li> 23 </li>
+          </ul>  
+
+        </div>
+    </div>
+</body>
+
+<script>
+
+//get book1, book2, album1, album2 
+var book1 = document.getElementById("twilight");
+var book2 = document.getElementById("the_fault_in_our_stars");
+
+var album1 = document.getElementById("album1");
+var album2 = document.getElementById("album2");
+
+console.log(book1.innerText);
+console.log(book2.innerText);
+console.log(album1.innerText);
+console.log(album2.innerText);
+
+
+console.log(document.getElementById("book2_name").innerHTML);
+console.log(document.getElementById("book2_category").innerHTML);
+console.log(document.getElementById("book2_price").innerHTML);
+console.log(document.getElementById("book2_pic").innerHTML);
+console.log(document.getElementById("book2_list").innerHTML);
+
+
+function create_content(){
+var book3 = document.createElement("Div"); 
+book3.class = "content";
+}
+
+function append_book(){
+
+var book3 = document.createElement("Div"); 
+book3.id = "book3"; // create new div with id = book3
+
+var name = document.createElement("Div");
+name.id = "book2_name"; //create new Div with id = book3_name
+var textNode document.createTextNode("this is book3 name");//add text to name
+name.appendChild(textNode);
+book3.appendChild(name); // append name Div
+
+var category = document.createElement("Div");
+category.id = "book3_category"; //create new Div with id = book3_category
+var textNode document.createTextNode("this is book3 category");//add text to category
+category.appendChild(textNode);
+book3.appendChild(category); // append category Div
+
+var price = document.createElement("Div");
+price.id = "book3_category"; //create new Div with id = book3_price
+var textNode document.createTextNode("price: 23 L.E");//add text to price
+category.appendChild(textNode);
+book3.appendChild(price);
+
+}
+
+ function delete_content(){
+  var elements = document.getElementsByClassName("content");
+    while(elements.length > 0){
+        //elements[0].parentNode.removeChild(elements[0]);
+        elements[0].remove();
+    }
+} 
+
+</script>
+
+</html>

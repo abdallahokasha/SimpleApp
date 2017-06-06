@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> New Page </title>
+
+</head>	
+<body>
+    
+</body>
+
+<script>
+function create_content(){
+var book3 = document.createElement("Div"); 
+book3.class = "content";
+}
+
+
+function append_book(){
+
+var book3 = document.createElement("Div"); 
+book3.id = "book3"; // create new div with id = book3
+
+var name = document.createElement("Div");
+name.id = "book2_name"; //create new Div with id = book3_name
+var textNode document.createTextNode("this is book3 name");//add text to name
+name.appendChild(textNode);
+book3.appendChild(name); // append name Div
+
+var category = document.createElement("Div");
+category.id = "book3_category"; //create new Div with id = book3_category
+var textNode document.createTextNode("this is book3 category");//add text to category
+category.appendChild(textNode);
+book3.appendChild(category); // append category Div
+
+var price = document.createElement("Div");
+price.id = "book3_category"; //create new Div with id = book3_price
+var textNode document.createTextNode("price: 23 L.E");//add text to price
+category.appendChild(textNode);
+book3.appendChild(price);
+}
+
+function delete_content(){
+  var elements = document.getElementsByClassName("content");
+    while(elements.length > 0){
+        //elements[0].parentNode.removeChild(elements[0]);
+        elements[0].remove();
+    }
+}
+delete_content();
+
+</script>
+
+</html>

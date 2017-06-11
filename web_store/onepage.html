@@ -2,7 +2,8 @@
 <html>
 
 <head>
-   <script type ="text/javascript" src="newpage.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+   </script>
   <title> New Page </title>
 <style>
 body {margin:0;}
@@ -48,9 +49,35 @@ body {margin:0;}
 
    <div style="padding-left:16px">
    </div>
+<h2> Books </h2>
+ <div ng-app = "mainApp" ng-controller = "bookController">
+         Enter book name: <input type = "text" ng-model = "book.name"><br>
+         Enter book category: <input type = "text" ng-model = "book.category"><br>
+         Enter book price: <input type = "text" ng-model = "book.price"><br>
+         Enter book author: <input type = "text" ng-model = "book.author"><br>
+         
+         
+         You are entering book: {{book.bookDetails()}}
+ </div>
+      
 <script>
-<!-- newpage.js file content will be replaced here -->
-</script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('bookController', function($scope) {
+            $scope.book = {
+               name: "the_call",
+               category: "Movies",
+               price:"15L.E"
+               author: "book1 Author"
 
+               
+               bookDetails: function() {
+                  var bookObject;
+                  bookObject = $scope.book;
+                  return "Book name: " + bookObject.name + "\n" + "Book category: " + bookObject.category + "\n" + "Book price: " + bookObject.price + "\n" + "Book Author: " + bookObject.author;
+               }
+            };
+         });
+</script>
 </body>
 </html>

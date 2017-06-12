@@ -83,5 +83,39 @@ body {margin:0;}
             };
          });
 </script>
+
+<h2> Albums </h2>
+<input type = "button" value = "Add Album"ng-click="hideShow2=(hideShow2 ? false : true)"> </input>
+ <div ng-app = "mainApp" ng-controller = "albumController" ng-if="hideShow2">
+         Enter Album name: <input type = "text" ng-model = "album.name"><br>
+         Enter Album category: <input type = "text" ng-model = "album.category"><br>
+         Enter Album price: <input type = "text" ng-model = "album.price"><br>
+         Enter Album singer: <input type = "text" ng-model = "album.singer"><br>
+         
+         
+         You are entering Album: {{album.albumDetails()}}
+ </div>
+      
+<script>
+         //no need to declare this again ;)
+         //var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('albumController', function($scope) {
+            $scope.album = {
+               name: "",
+               category: "",
+               price:"",
+               singer: "",
+
+               albumDetails: function() {
+                  var albumObject;
+                  albumObject = $scope.album;
+                  return "Album name: " + albumObject.name +  '\n' + "album category: " + albumObject.category + "\n" + "Book price: " + albumObject.price + "\n" + "Album Singer: " + albumObject.singer;
+               }
+
+            };
+         });
+</script>
+
 </body>
 </html>

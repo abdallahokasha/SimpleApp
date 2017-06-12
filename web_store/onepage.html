@@ -36,10 +36,10 @@ body {margin:0;}
 </style>
 
 </head>	
-<body>
+<body ng-app="mainApp"> <!-- if we remove ng-app the add book button [show/hide] will has no effect --> 
  <div class="topnav">
   <a class="active" href="#home">Home</a>
-  <a href="#" onclick = "create_content()"> Create Content </a>
+  <a href="#" onclick = "create_content()"> Create Content </a>  
   <a href="#" onclick = "append_book()"> Add Book </a>
   <a href="#" onclick = "append_album()"> Add Album </a>
   <a href="#" onclick = "show_all()"> Show All </a>
@@ -50,7 +50,10 @@ body {margin:0;}
    <div style="padding-left:16px">
    </div>
 <h2> Books </h2>
- <div ng-app = "mainApp" ng-controller = "bookController">
+
+<!-- <input type="checkbox" ng-model="hideShow" ng-init="hideShow = false"></input> -->
+<input type = "button" value = "Add Book"ng-click="hideShow=(hideShow ? false : true)"> </input>
+ <div ng-app = "mainApp" ng-controller = "bookController" ng-if="hideShow">
          Enter book name: <input type = "text" ng-model = "book.name"><br>
          Enter book category: <input type = "text" ng-model = "book.category"><br>
          Enter book price: <input type = "text" ng-model = "book.price"><br>
@@ -65,17 +68,18 @@ body {margin:0;}
          
          mainApp.controller('bookController', function($scope) {
             $scope.book = {
-               name: "the_call",
-               category: "Movies",
-               price:"15L.E"
-               author: "book1 Author"
+               name: "",
+               category: "",
+               price:"",
+               author: "",
 
                
                bookDetails: function() {
                   var bookObject;
                   bookObject = $scope.book;
-                  return "Book name: " + bookObject.name + "\n" + "Book category: " + bookObject.category + "\n" + "Book price: " + bookObject.price + "\n" + "Book Author: " + bookObject.author;
+                  return "Book name: " + bookObject.name +  '\n' + "Book category: " + bookObject.category + "  \n" + "Book price: " + bookObject.price + "  \n" + "Book Author: " + bookObject.author;
                }
+
             };
          });
 </script>

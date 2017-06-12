@@ -1,5 +1,6 @@
 var mainApp = angular.module("mainApp", []);
 
+//book Controller 
 mainApp.controller("bookController", function($scope) {
    $scope.book = {
       name: "",
@@ -56,3 +57,4 @@ mainApp.controller("bookController", function($scope) {
       }
    };
 });
+//Album Controller will be here ..

@@ -1,11 +1,11 @@
 var app = angular.module('myApp', []);
 
 app.controller('my_companiesController', function($scope, $http) {
-  $scope.emp_id="";
+  $scope.emp_id="1";
 
   $http({
     method: "GET",
-    url: "http://localhost:3000/employees/1/list_companies",
+    url: "http://localhost:3000/employees/"+$scope.emp_id+"/list_companies",
     //params: {id: $scope.emp_id}
 
   }).then(function mySuccess(response) {

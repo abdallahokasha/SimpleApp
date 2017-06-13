@@ -20,7 +20,7 @@
 // });
    
 
-var myApp = angular.module('myApp', ['Devise'], ['ngRoute'])
+var myApp = angular.module('myApp', ['Devise'])
 
 myApp.config(function(AuthProvider, AuthInterceptProvider) {
         AuthProvider.loginPath('/users/sign_in.json');
@@ -30,7 +30,7 @@ myApp.config(function(AuthProvider, AuthInterceptProvider) {
         AuthInterceptProvider.interceptAuth(true);
     });
 
-    myApp.controller('signinController', function(Auth) {
+    myApp.controller('signinController', function($scope, Auth) {
         var credentials = {
             email: 'abc@xyz.com',
             password: '123456'
@@ -57,3 +57,5 @@ myApp.config(function(AuthProvider, AuthInterceptProvider) {
             // user logged in by Auth.login({...})
         });
     });
+
+    

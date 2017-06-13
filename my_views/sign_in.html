@@ -4,9 +4,7 @@
    
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
    </script>
-   <script src="js/angular.js"></script>
-<script src="js/angular-route.js"></script>
-
+   <script src="devise-min.js"> </script>
 <script src="sign_in.js"></script>
 <title> Sign in </title>
 </head>
@@ -41,7 +39,7 @@ a, h2, label, input .sansserif {
       <a href=""> Forget your password?</a>
   </div> 
 
-   <!--  <h2> Status: {{statuscode}} </h2> -->
+    <h2> Status: {{Auth.login()}} </h2>
 </div>
 
 <script>

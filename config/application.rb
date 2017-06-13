@@ -18,8 +18,15 @@ module SimpleApp
     # -- all .rb files in that directory are automatically loaded.
 
 
-     config.to_prepare do
-      DeviseController.respond_to :html, :json
+    #  config.to_prepare do
+    #   DeviseController.respond_to :html, :json
+    # end
+
+	config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
     end
 
   end

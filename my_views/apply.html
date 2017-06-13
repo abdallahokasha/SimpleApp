@@ -5,8 +5,8 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
    </script>
 
-<script src="my_companies.js"></script>
-<title> My Companies </title>
+<script src="apply.js"></script>
+<title> Apply </title>
 </head>
 
 <style>
@@ -17,13 +17,16 @@ a, h2, label, input .sansserif {
 
 <body ng-app="myApp">
   
-<h2> Companies </h2>
+<h2> Applying </h2>
 
-<div ng-app="myApp" ng-controller="my_companiesController"> 
+<div ng-app="myApp" ng-controller="applyController"> 
   <div id="id1">
    
-      <label><b>Email</b></label><br>
-      <input type="text" placeholder="Enter employee id " name="emp_id" required>
+      <label><b>Employee ID</b></label><br>
+      <input type="text" placeholder="Enter Employee ID " name="emp_id" required>
+      <label><b>company ID</b></label><br>
+      <input type="text" placeholder="Enter Company ID " name="com_id" required>
+      
   </div>
 
     <h2> myRes </h2>

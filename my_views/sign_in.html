@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+   
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
    </script>
+
+<script src="sign_in.js"></script>
 <title> Sign in </title>
 </head>
+
 <style>
 a, h2, label, input .sansserif {
     font-family: Arial, Helvetica, sans-serif;
 }
 </style>
+
 <body ng-app="myApp">
   
-  <script src="sign_in.js"></script>
+<h2> sign in </h2>
 
-<h2> Log in</h3>
-
-<div id="id1">
+<div ng-app="myApp" ng-controller="signinController"> 
+  <div id="id1">
    
       <label><b>Email</b></label><br>
       <input type="text" placeholder="Enter Email" name="email" required>
@@ -28,49 +32,17 @@ a, h2, label, input .sansserif {
       <br><br>
       <button type="submit">Login</button>
       <br><br>
-      <a href=""> Sign up</a>
+      <a href="/sign_up.html"> Sign up </a>
       <br> <br>
       <a href=""> Forget your password?</a>
-</div>
 
-<div ng-app="myApp" ng-controller="signinController"> 
-
-<p>This's the response: </p>
-<h1>Status: {{statuscode}} </h1>
-
+  </div>
+    <h2> Status: {{statuscode}} </h2>
 </div>
 
 <script>
-
 //sign_in.js file content can be replaced here.
-
-// var app = angular.module('myApp', []);
-
-// app.controller('signinController', function($scope, $http) {
-//   $http({
-//     method: "GET",
-//     url: "http://localhost:3000/users/sign_in"
-//     params: {email: email, password: psw}
-//   }).then(function mySuccess(response) {
-//       $scope.myRes = response.data;
-//       $scope.statuscode = response.status;
-//     }, function myError(response) {
-//       $scope.myRes = response.statusText;
-//   });
-// });
-
-// $http({
-//     url: "http://localhost:3000/users/sign_in", 
-//     method: "GET",	
-//     params: {email: email, password: psw}
-// });
-
-// $http.get(user.details_path, {
-//     params: { user_id: user.id }
-// });
-
 </script>
 
 </body>
-
 </html>

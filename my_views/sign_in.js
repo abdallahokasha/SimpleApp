@@ -18,20 +18,30 @@
 //       $scope.myRes = response.statusText;
 //   });
 // });
+   
 
-angular.module('myApp', ['Devise']).
-    controller('signinController', function(Auth) {
+var myApp = angular.module('myApp', ['Devise'], ['ngRoute'])
+
+myApp.config(function(AuthProvider, AuthInterceptProvider) {
+        AuthProvider.loginPath('/users/sign_in.json');
+        AuthProvider.loginMethod('POST');
+        AuthProvider.resourceName('user');
+
+        AuthInterceptProvider.interceptAuth(true);
+    });
+
+    myApp.controller('signinController', function(Auth) {
         var credentials = {
-            email: '',
-            password: ''
+            email: 'abc@xyz.com',
+            password: '123456'
         };
-        var config = {
-            headers: {
-                'X-HTTP-Method-Override': 'POST'
-            }
-        };
+        // var config = {
+        //     headers: {
+        //         'X-HTTP-Method-Override': 'POST'
+        //     }
+        // };
 
-        Auth.login(credentials, config).then(function(user) {
+        Auth.login(credentials).then(function(user) {
             console.log(user); // => {id: 1, ect: '...'}
         }, 
 

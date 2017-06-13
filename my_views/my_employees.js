@@ -1,12 +1,12 @@
 var app = angular.module('myApp', []);
 
 app.controller('my_employeesController', function($scope, $http) {
-  // email = $scope.email;
-  // psw = $scope.psw;
+  $scope.com_id="";
+  
   $http({
     method: "GET",
-    url: "http://localhost:3000/companies/com_id/list_employees",
-    params: {id: com_id}
+    url: "http://localhost:3000/companies/:id/list_employees",
+    params: {id: $scope.com_id}
 
   }).then(function mySuccess(response) {
       // a string, or an object, carrying the response from the server.

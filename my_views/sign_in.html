@@ -15,18 +15,20 @@ a, h2, label, input .sansserif {
 }
 </style>
 
-<body ng-app="myApp">
+<body>
   
+<div ng-app="myApp" ng-controller="signinController"> 
+
 <h2> sign in </h2>
 
-<div ng-app="myApp" ng-controller="signinController"> 
+
   <div id="id1">
    
       <label><b>Email</b></label><br>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" ng-model="email"required>
       <br><br>
       <label><b>Password</b></label> <br>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" ng-model="password" required>
       <br><br>
       <input type="checkbox" checked="checked"> Remember me 
       <br><br>
@@ -35,8 +37,8 @@ a, h2, label, input .sansserif {
       <a href="/sign_up.html"> Sign up </a>
       <br> <br>
       <a href=""> Forget your password?</a>
+  </div> 
 
-  </div>
     <h2> Status: {{statuscode}} </h2>
 </div>
 

@@ -16,20 +16,19 @@ a, h2, label, input .sansserif {
 </style>
 
 <body ng-app="myApp">
-  
-<h2> Companies </h2>
 
-<div ng-app="myApp" ng-controller="assignController"> 
+<div ng-app="myApp" ng-controller="assignController">   
+<h2> Assign </h2>
   <div id="id1">
    
       <label><b>company ID</b></label><br>
-      <input type="text" placeholder="Enter Company ID " name="com_id" required>
+      <input type="text" placeholder="Enter Company ID " ng-model="com_id" required>
       <label><b>Employee ID</b></label><br>
-      <input type="text" placeholder="Enter Employee ID " name="emp_id" required>   
+      <input type="text" placeholder="Enter Employee ID " ng-model="emp_id" required>   
 
   </div>
 
-    <h2> myRes </h2>
+    <h2> Result : {{myRes}} </h2>
 </div>
 
 <script>

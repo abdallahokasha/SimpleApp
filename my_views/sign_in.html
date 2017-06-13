@@ -11,9 +11,12 @@ a, h2, label, input .sansserif {
 }
 </style>
 <body ng-app="myApp">
+  
+  <script src="sign_in.js"></script>
+
 <h2> Log in</h3>
 
-<div id="id01">
+<div id="id1">
    
       <label><b>Email</b></label><br>
       <input type="text" placeholder="Enter Email" name="email" required>
@@ -28,29 +31,33 @@ a, h2, label, input .sansserif {
       <a href=""> Sign up</a>
       <br> <br>
       <a href=""> Forget your password?</a>
-
 </div>
 
-<div ng-app="myApp" ng-controller="signinCtrl"> 
+<div ng-app="myApp" ng-controller="signinController"> 
+
 <p>This's the response: </p>
 <h1>Status: {{statuscode}} </h1>
+
 </div>
 
 <script>
-var app = angular.module('myApp', []);
 
-app.controller('signinCtrl', function($scope, $http) {
-  $http({
-    method: "GET",
-    url: "http://localhost:3000/users/sign_in"
-    params: {email: email, password: psw}
-  }).then(function mySuccess(response) {
-      $scope.myRes = response.data;
-      $scope.statuscode = response.status;
-    }, function myError(response) {
-      $scope.myRes = response.statusText;
-  });
-});
+//sign_in.js file content can be replaced here.
+
+// var app = angular.module('myApp', []);
+
+// app.controller('signinController', function($scope, $http) {
+//   $http({
+//     method: "GET",
+//     url: "http://localhost:3000/users/sign_in"
+//     params: {email: email, password: psw}
+//   }).then(function mySuccess(response) {
+//       $scope.myRes = response.data;
+//       $scope.statuscode = response.status;
+//     }, function myError(response) {
+//       $scope.myRes = response.statusText;
+//   });
+// });
 
 // $http({
 //     url: "http://localhost:3000/users/sign_in", 

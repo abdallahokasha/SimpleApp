@@ -15,17 +15,17 @@ a, h2, label, input .sansserif {
 }
 </style>
 
-<body>
+<body ng-app="myApp">
 <div ng-app="myApp" ng-controller="my_employeesController">   
 <h2> Employees </h2>
 
   <div id="id1">
    
-      <label><b>ID</b></label><br>
+      <label><b>Company ID</b></label>
       <input type="text" placeholder="Enter your Company id " ng-model="com_id" required>
   </div>
 
-    <h2> myRes </h2>
+    <h2> {{myRes}} </h2>
 </div>
 
 <script>

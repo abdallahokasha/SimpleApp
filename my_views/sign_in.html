@@ -15,8 +15,23 @@ a, h2, label, input .sansserif {
 }
 </style>
 
-<body>
-  
+<body ng-app = "signIn">
+
+<h2>Sign In</h2>  
+<form ng-controller="signInCtrl as user" ng-submit="user.signIn()" novalidate>  
+  <div class="form-group">
+    <label for="inputEmail">Email </label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" ng-model="user.credentials.email">
+  </div>
+  <br><br>
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="user.credentials.password">
+  </div> 
+  <input type="submit" class="btn btn-default" value="login" />
+</form>    
+<!--
+
 <div ng-app="myApp" ng-controller="signinController"> 
 
 <h2> sign in </h2>
@@ -40,7 +55,9 @@ a, h2, label, input .sansserif {
   </div> 
 
     <h2> Status: {{Auth.login()}} </h2>
-</div>
+</div> 
+
+-->
 
 <script>
 //sign_in.js file content can be replaced here.

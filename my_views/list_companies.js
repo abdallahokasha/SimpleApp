@@ -1,8 +1,7 @@
 var app = angular.module('myApp', []);
 
 app.controller('list_companiesController', function($scope, $http) {
-  // email = $scope.email;
-  // psw = $scope.psw;
+
   $http({
     method: "GET",
     url: "http://localhost:3000/companies",

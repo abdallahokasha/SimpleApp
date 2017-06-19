@@ -1,8 +1,9 @@
 var app = angular.module('myApp', []);
 
 app.controller('assignController', function($scope, $http) {
-  // email = $scope.email;
-  // psw = $scope.psw;
+  $scope.com_id="";
+  $scope.emp_id="";
+ 
   $http({
     method: "GET",
     url: "http://localhost:3000/companies/com_id/assign?employee_id=emp_id",

@@ -4,8 +4,14 @@
    
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
    </script>
+   
+   <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js">
+   </script>
+
    <script src="devise-min.js"> </script>
 <script src="sign_in.js"></script>
+<script src="app.js"></script>
+
 <title> Sign in </title>
 </head>
 
@@ -29,6 +35,12 @@ a, h2, label, input .sansserif {
     <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="user.credentials.password">
   </div> 
   <input type="submit" class="btn btn-default" value="login" />
+
+  <br><br>
+      <a href="/sign_up.html"> Sign up </a>
+      <br> <br>
+      <a href=""> Forget your password?</a>
+      
 </form>    
 <!--
 

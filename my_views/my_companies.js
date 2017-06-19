@@ -1,8 +1,10 @@
 var app = angular.module('myApp', []);
 
 app.controller('my_companiesController', function($scope, $http) {
-  $scope.emp_id="1";
+  $scope.emp_id="";
 
+  //$scope.submitForm = function() {
+       
   $http({
     method: "GET",
     url: "http://localhost:3000/employees/"+$scope.emp_id+"/list_companies",
@@ -16,4 +18,7 @@ app.controller('my_companiesController', function($scope, $http) {
     }, function myError(response) {
       $scope.myRes = response.statusText;
   });
+
+//};
+
 });
